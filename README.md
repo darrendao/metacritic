@@ -8,6 +8,9 @@ This repo is a coding exercise that consists of 2 parts.
 ## Requirements
 * Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). Refer to rbenv or RVM for managing your Ruby installations.
 * bundler gem installed (needed for dependency management)
+```
+sudo gem install bundler
+```
 * Install native dependency for sqlite and libxml2. For example, on Centos, you can run
 ```
 sudo yum install ruby-devel
