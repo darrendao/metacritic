@@ -2,13 +2,20 @@
 [![Build Status](https://travis-ci.org/darrendao/metacritic.svg?branch=master)](https://travis-ci.org/darrendao/metacritic)
 
 This repo is a coding exercise that consists of 2 parts.
-* A parser for parsing the HTML of the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3).
+* A parser for parsing the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3).
 * A REST API for retrieving top PS3 games.
 
 ## Requirements
 * Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). Refer to rbenv or RVM for managing your Ruby installations.
 * bundler gem installed (needed for dependency management)
-* Run the following command to install all Ruby gems dependency
+* Install native dependency for sqlite and libxml2. For example, on Centos, you can run
+```
+sudo yum install ruby-devel
+sudo yum groupinstall 'Development Tools'
+sudo yum install sqlite-devel
+sudo yum install libxml2-devel 
+```
+* Install all Ruby gems dependency
 ```
 bundle install
 ```
