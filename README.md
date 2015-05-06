@@ -42,7 +42,7 @@ rake db:populate_top_ps3_games
 ```
 For fun, you can also populate the DB with additional list of PS3 games by running
 ```
-rake db:populate_all_ps3_games
+rake db:populate_sample_ps3_games
 ```
 ## Using the REST API
 * To view all games, make a GET request to /api/v1/games
