@@ -11,6 +11,7 @@ configure :development, :test, :production do
   register ::Sinatra::Namespace
   set :protection, true
   set :protect_from_csrf, true
+  set :bind, '0.0.0.0'
 end
 
 env = ENV['RACK_ENV'] || "development"

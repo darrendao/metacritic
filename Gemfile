@@ -12,4 +12,4 @@ gem 'minitest', "~> 5.0", :group => :development
 gem 'thor'
 gem 'rake'
 gem 'nokogiri', "~> 1.6"
-gem 'io-console'
+gem 'io-console', "~> 0.4.2"
