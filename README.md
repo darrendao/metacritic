@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/darrendao/metacritic.svg?branch=master)](https://travis-ci.org/darrendao/metacritic)
 
 This repo is a coding exercise that consists of 2 parts.
-* A parser for parsing the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3).
-* A REST API for retrieving top PS3 games.
+* A parser for parsing the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3). This is written in Ruby.
+* A REST API for retrieving top PS3 games. This is written as a Sinatra app.
 
 ## Requirements
 * Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). Refer to rbenv or RVM for managing your Ruby installations.
@@ -19,7 +19,6 @@ sudo yum install libxml2-devel
 ```
 bundle install
 ```
-
 ## Running tests
 * Tests are written as specs and stored under the spec directory.
 * Tests can be run as followed
