@@ -3,7 +3,7 @@
 
 This repo is a coding exercise that consists of 2 parts.
 * A parser for parsing the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3). This is written in Ruby.
-* A REST API for retrieving top PS3 games. This is written as a Sinatra app.
+* A REST API for retrieving top PS3 games. This is written as a Sinatra web app. For development and demo purposes, this web app is backed by a sqlite DB.
 
 ## Requirements
 * Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). Refer to rbenv or RVM for managing your Ruby installations.
@@ -63,3 +63,7 @@ rake db:populate_sample_ps3_games
 ## Using the REST API
 * To view all games, make a GET request to /api/v1/games
 * To view a particular game, make a GET request to /api/v1/games/GAME_TITLE_GOES_IN_HERE
+
+## Deploying to production
+* I would recommend running the Sinatra web app on Puma behind nginx.
+* For database, I would recommend using MongoDB.
