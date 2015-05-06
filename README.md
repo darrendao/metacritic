@@ -6,7 +6,7 @@ This repo is a coding exercise that consists of 2 parts.
 * A REST API for retrieving top PS3 games.
 
 ## Requirements
-* Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). I recommend using rbenv for managing your Ruby installations.
+* Ruby 1.9.x or greater (tested with 1.9.3-p429 and 2.0.0-p353). Refer to rbenv or RVM for managing your Ruby installations.
 * bundler gem installed (needed for dependency management)
 * Run the following command to install all Ruby gems dependency
 ```
@@ -33,7 +33,7 @@ rake parse:top_ps3_games
 ```
 ruby app.rb
 ```
-* You can now access the REST API at localhost:4567/api/v1/games
+* You can now access the REST API at [localhost:4567/api/v1/games](http://localhost:4567/api/v1/games)
 
 ## Populating the database
 To populate the database with the current top PS3 games, run the following Rake task
@@ -42,7 +42,7 @@ rake db:populate_top_ps3_games
 ```
 For fun, you can also populate the DB with additional list of PS3 games by running
 ```
-rake db:populate_all_ps3_games
+rake db:populate_sample_ps3_games
 ```
 ## Using the REST API
 * To view all games, make a GET request to /api/v1/games
