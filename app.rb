@@ -19,6 +19,10 @@ DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/#{env}.d
 DataMapper.finalize
 DataMapper.auto_upgrade!
 
+get '/' do
+  "Nothing to see here. For more info, refer to the README.md"
+end
+
 # Namespacing the API for version 1
 namespace '/api/v1' do
 
