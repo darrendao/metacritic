@@ -78,6 +78,7 @@ GEM
     sinatra-reloader (1.0)
       sinatra-contrib
     stringex (1.5.1)
+    thor (0.19.1)
     tilt (1.4.1)
     uuidtools (2.1.5)
 
@@ -94,3 +95,4 @@ DEPENDENCIES
   sinatra
   sinatra-contrib
   sinatra-reloader
+  thor

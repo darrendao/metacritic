@@ -17,7 +17,7 @@ namespace :parse do
     url = "http://www.metacritic.com/game/playstation-3"
     mc_parser = MetaCriticParser.new
     games = mc_parser.parse_top_ps3_games(url)
-    puts games.to_json
+    puts JSON.pretty_generate(games)
   end
 end
 
@@ -30,9 +30,12 @@ namespace :db do
   end
 
   task :populate_sample_ps3_games do
-    url = "http://www.metacritic.com/browse/games/release-date/available/ps3/metascore?page=1"
-    mc_parser = MetaCriticParser.new
-    games = mc_parser.parse_all_ps3_games(url)
-    mc_parser.populate_db(games)
+    (1..3).each do |i|
+      url = "http://www.metacritic.com/browse/games/release-date/available/ps3/metascore?page=#{i}"
+      puts "Parsing #{url}"
+      mc_parser = MetaCriticParser.new
+      games = mc_parser.parse_all_ps3_games(url)
+      mc_parser.populate_db(games)
+    end
   end
 end

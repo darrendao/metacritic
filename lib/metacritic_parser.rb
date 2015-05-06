@@ -10,7 +10,9 @@ class MetaCriticParser
   # list of all ps3 games. Returns empty list if unable to parse html
   def parse_all_ps3_games(url)
     games = []
-    page = Nokogiri::HTML(open(url))
+    page = fetch_html(url)
+    return games if page.nil? # return early if there's problem parsing
+
     page.css('div.product_condensed ol.list_products div.product_wrap').each do |prod|
       title = prod.css('a').text
       score = prod.css('div.metascore_w').text
@@ -23,7 +25,9 @@ class MetaCriticParser
   # list of top ps3 games. Returns empty list if unable to parse html
   def parse_top_ps3_games(url)
     games = []
-    page = Nokogiri::HTML(open(url))
+    page = fetch_html(url)
+    return games if page.nil? # return early if there's problem parsing
+
     page.css('div.main_stats').each do |prod|
       title = prod.css('h3.product_title a').text
       score = prod.css('span.metascore_w').text
@@ -39,12 +43,24 @@ class MetaCriticParser
 
     DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/#{env}.db")
     DataMapper.finalize
-    DataMapper.auto_migrate!
+    DataMapper.auto_upgrade!
 
     games.each do |game|
       opts = {'title' => game['title'], 'score' => game['score']}
       Game.create('title' => game[:title], 'score' => game[:score])
     end
+  end
+
+  private
+  def fetch_html(url)
+    page = nil
+    begin
+      page = Nokogiri::HTML(open(url, 'User-Agent' => 'ruby'))
+    rescue OpenURI::HTTPError => e
+      puts "There was an error opening the URL #{url}"
+      puts e
+    end
+    return page
   end
 end
 
