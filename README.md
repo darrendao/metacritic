@@ -33,7 +33,7 @@ rake parse:top_ps3_games
 ```
 ruby app.rb
 ```
-* You can now access the REST API at localhost:4567/api/v1/games
+* You can now access the REST API at [localhost:4567/api/v1/games](http://localhost:4567/api/v1/games)
 
 ## Populating the database
 To populate the database with the current top PS3 games, run the following Rake task
