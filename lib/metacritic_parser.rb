@@ -46,8 +46,14 @@ class MetaCriticParser
     DataMapper.auto_upgrade!
 
     games.each do |game|
-      opts = {'title' => game['title'], 'score' => game['score']}
-      Game.create('title' => game[:title], 'score' => game[:score])
+      # datamapper doesn't seem to support upsert so we'll have to
+      # do the check ourselves
+      existing_game = Game.first('title' => game[:title])
+      if(existing_game)
+        existing_game.update('title' => game[:title], 'score' => game[:score])
+      else
+        Game.create('title' => game[:title], 'score' => game[:score])
+      end
     end
   end
 

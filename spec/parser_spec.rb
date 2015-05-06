@@ -23,3 +23,24 @@ describe "Parse top PS3 games" do
     games[0][:title].must_equal "Under Night In-Birth Exe:Late"
   end
 end
+
+describe "Populate DB" do
+  before do
+    Game.all.destroy
+    @test_data_dir = File.join(File.dirname(__FILE__), 'test_data')
+  end
+  it "create new records correctly" do
+    mc_parser = MetaCriticParser.new
+    games = mc_parser.parse_top_ps3_games(File.join(@test_data_dir, 'valid.html'))
+    mc_parser.populate_db(games)
+    Game.all.size.must_equal 4
+  end
+
+  it "does not create duplicate records" do
+    mc_parser = MetaCriticParser.new
+    games = mc_parser.parse_top_ps3_games(File.join(@test_data_dir, 'valid.html'))
+    mc_parser.populate_db(games)
+    mc_parser.populate_db(games)
+    Game.all.size.must_equal 4
+  end
+end
