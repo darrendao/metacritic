@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'json'
+require './lib/metacritic_parser.rb'
+
+# Driver class for parsing metacritic web page 
+class MetacriticParser < Thor
+
+  desc "top_games", "Parse metacritic html page for top ps games"
+  method_option :url, :type => :string, :description => 'URL to parse from', :default => 'http://www.metacritic.com/game/playstation-3'
+  def top_games
+    mc_parser = MetaCriticParser.new
+    games = mc_parser.parse_top_ps3_games(options[:url])
+    puts JSON.pretty_generate(games)
+  end
+
+  desc "all_games", "Parse metacritic html page for all listed games"
+  method_option :url, :type => :string, :description => 'URL to parse from', :default => 'http://www.metacritic.com/browse/games/release-date/available/ps3/metascore?page=1'
+  def all_games
+    mc_parser = MetaCriticParser.new
+    games = mc_parser.parse_all_ps3_games(options[:url])
+    puts JSON.pretty_generate(games)
+  end
+end
+
+MetacriticParser.start
