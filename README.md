@@ -4,22 +4,29 @@ This repo is a coding exercise that consists of 2 parts.
 * A REST API for retrieving top PS3 games.
 
 ## Requirements
-* Ruby 1.9.x or greater
-* bundler gem installed (needed for dependency management)
+* Ruby 1.9.x or greater (Tested with 1.9.3-p429 and 2.0.0-p353). I recommend using rbenv for managing your Ruby installations.
+* With bundler gem installed (needed for dependency management), run the following command to install all Ruby gems dependency
+```
+bundle install
+```
 
 ## Running tests
 * Tests are written as specs and stored under the spec directory.
 * Tests can be run as followed
 ```
-rake test
+RACK_ENV=test rake test
 ```
-
-## Running the REST API locally
-* To run the REST API, first install the required gems via bundle
+## Parsing the “Top Playstation 3 Games (By Metascore)” page
+* You can either use the following Rake task
 ```
-bundle install
+rake parse:top_ps3_games 
 ```
-* Now, run the sinatra app
+* Or you can invoke the parser directly
+```
+./parser top_games
+```
+## Running the REST API
+* To start the REST API, simply run the Sinatra app
 ```
 ruby app.rb
 ```
@@ -28,9 +35,12 @@ ruby app.rb
 ## Populating the database
 To populate the database with the current top PS3 games, run the following Rake task
 ```
-TDB
+rake db:populate_top_ps3_games
 ```
-To populate the database with all PS3 games, run the following Rake task
+For fun, you can also populate the DB with additional list of PS3 games by running
 ```
-TDB
+rake db:populate_top_ps3_games
 ```
+## Using the REST API
+* To view all games, make a GET request to /api/v1/games
+* To view a particular game, make a GET request to /api/v1/games/GAME_TITLE_GOES_IN_HERE
