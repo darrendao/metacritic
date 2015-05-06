@@ -1,4 +1,6 @@
 # metacritic
+[![Build Status](https://travis-ci.org/darrendao/metacritic.svg?branch=master)](https://travis-ci.org/darrendao/metacritic)
+
 This repo is a coding exercise that consists of 2 parts.
 * A parser for parsing the HTML of the “Top Playstation 3 Games (By Metascore)” page (http://www.metacritic.com/game/playstation-3).
 * A REST API for retrieving top PS3 games.
