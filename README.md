@@ -11,12 +11,12 @@ This repo is a coding exercise that consists of 2 parts.
 ```
 sudo gem install bundler
 ```
-* Install native dev packages for ruby, sqlite and libxml2. For example, on Centos, you can run
+* Install native dev packages for ruby, sqlite, libxslt and libxml2. For example, on Centos, you can run
 ```
 sudo yum install ruby-devel
 sudo yum groupinstall 'Development Tools'
 sudo yum install sqlite-devel
-sudo yum install libxml2-devel 
+sudo yum install libxml2-devel libxslt-devel
 ```
 * On Ubuntu, you can run
 ```
