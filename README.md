@@ -23,6 +23,7 @@ sudo yum install libxml2-devel
 sudo apt-get install build-essential
 sudo apt-get install ruby-dev
 sudo apt-get install libsqlite3-dev
+sudo apt-get install libxslt-dev libxml2-dev
 ```
 * Install all Ruby gems dependency
 ```
